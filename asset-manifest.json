@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Customer-Survey/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/React-Customer-Survey/static/js/main.55508e65.chunk.js",
+    "main.js.map": "/React-Customer-Survey/static/js/main.55508e65.chunk.js.map",
+    "runtime-main.js": "/React-Customer-Survey/static/js/runtime-main.2431ca0a.js",
+    "runtime-main.js.map": "/React-Customer-Survey/static/js/runtime-main.2431ca0a.js.map",
+    "static/js/2.838f3616.chunk.js": "/React-Customer-Survey/static/js/2.838f3616.chunk.js",
+    "static/js/2.838f3616.chunk.js.map": "/React-Customer-Survey/static/js/2.838f3616.chunk.js.map",
+    "static/js/3.8918d8c6.chunk.js": "/React-Customer-Survey/static/js/3.8918d8c6.chunk.js",
+    "static/js/3.8918d8c6.chunk.js.map": "/React-Customer-Survey/static/js/3.8918d8c6.chunk.js.map",
+    "index.html": "/React-Customer-Survey/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/React-Customer-Survey/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.838f3616.chunk.js.LICENSE.txt": "/React-Customer-Survey/static/js/2.838f3616.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/React-Customer-Survey/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2431ca0a.js",
+    "static/js/2.838f3616.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.55508e65.chunk.js"
+  ]
+}
