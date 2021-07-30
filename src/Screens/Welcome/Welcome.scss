@@ -1,10 +1,14 @@
+$blue:#00a3ad;
+$yellow:#FDCC08;
+
 .content{
     display: flex;
     margin: 15px 10%;
     flex-direction: column;
 }
+
 .top-content {
-    background-image: url("/src/assets/images/bgWelcome.jpg");
+    // background-image: url("/src/assets/images/bgWelcome.jpg");
     background-size: cover;
     width:100%;
     background-repeat: no-repeat;
@@ -21,7 +25,7 @@
 }
 .incentive > div{
     border : 1px solid #D1D7DA;
-    background-color:#F1F4F6;
+    background-color: $blue;
     margin-right: 10px;
     padding: 4px;
     font-size: 12px;

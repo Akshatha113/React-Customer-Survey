@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
-import './YesNo.css';
+import './YesNo.scss';
 
 function YesNo() {
     const [inputField, setInputField] = useState({

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Welcome.css';
+import './Welcome.scss';
 // import girlLaptop from "./assets/images/girlLaptop.jpg";
 
 function Welcome() {
