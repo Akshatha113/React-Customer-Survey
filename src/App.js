@@ -2,14 +2,14 @@
 import Welcome from './Screens/Welcome/Welcome';
 import YesNo from './DynamicComponents/YesNo/YesNo';
 import OpenEnded from './DynamicComponents/OpenEnded/OpenEnded';
-// import MixedType from './DynamicComponents/MixedType/MixedType';
+import MixedType from './DynamicComponents/MixedType/MixedType';
 
 function App() {
   return (
     <div className="App">
-      {/* <MixedType/> */}
+      {/* <MixedType/>
       <YesNo/>
-      <OpenEnded/>
+      <OpenEnded/> */}
       <Welcome/>
     </div>
   );
