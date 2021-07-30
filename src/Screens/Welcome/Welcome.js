@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles/Welcome.css';
-import girlLaptop from "./assets/images/girl-laptop.jpg";
+import './Welcome.css';
+// import girlLaptop from "./assets/images/girlLaptop.jpg";
+
 function Welcome() {
     
   return (
@@ -22,7 +23,7 @@ function Welcome() {
                     <p>Hey <span className="blue-text font-bold">FirstName,</span></p>
                     <p>I value your feedback, particulary with how we went managing your case</p>
                     <p>I am always looking forward to improve our customer experience to better serve you in the future</p>
-                    <p class="regards"><span>Thank you,</span>
+                    <p className="regards"><span>Thank you,</span>
                         <span>John</span>
                         <span>Optus senior Expert</span>
                     </p>
@@ -32,7 +33,7 @@ function Welcome() {
                 </div>
             </div>
             <div className="right dflt-padding">
-                <img src={girlLaptop} className="girlLaptop"></img>
+                {/* <img src={girlLaptop} className="girlLaptop"></img> */}
             </div>
             
         </div>

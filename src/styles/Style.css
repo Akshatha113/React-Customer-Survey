@@ -16,7 +16,7 @@ body {
     border-bottom: 1px solid #ddd;
 }
 .bg-grey {
-    background-color: #F1F4F6 !important;
+    /* background-color: #F1F4F6 !important; */
     box-shadow: 1px 1px 4px #00a3ad;
     border: 2px solid #00a3ad;
 }
@@ -87,7 +87,7 @@ label {
 }
 select,input[type="text"], input[type="phone"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"] {
     color: #acafb2;
-    margin-top: 10px !important;
+    /* margin-top: 10px !important; */
     height: 38px;
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     font-size: 14px !important;
@@ -121,6 +121,7 @@ input[type=radio]:before {
 }
 .error-message {
     margin-top: 8px;
+    margin-left:10px;
     color: red;
 }
 .disabled {
@@ -164,7 +165,7 @@ input[type=radio]:before {
     margin-top: 10px;
     background-color: #D1D7DA;
     border: 2px solid #acafb2;
-    float: right;
+    /* float: right; */
 }
 .save-tab:hover{
     background-color:#acafb2;
@@ -209,7 +210,9 @@ div.stars{
     width: auto !important;
 }
 .ans-box {
-    margin-right:25px;
+    margin-right:20px;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

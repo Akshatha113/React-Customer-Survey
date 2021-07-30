@@ -1,24 +1,16 @@
 // import logo from './logo.svg';
-import Welcome from './Welcome';
+import Welcome from './Screens/Welcome/Welcome';
+import YesNo from './DynamicComponents/YesNo/YesNo';
+import OpenEnded from './DynamicComponents/OpenEnded/OpenEnded';
+// import MixedType from './DynamicComponents/MixedType/MixedType';
 
 function App() {
   return (
     <div className="App">
+      {/* <MixedType/> */}
+      <YesNo/>
+      <OpenEnded/>
       <Welcome/>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }

@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 .top-content {
-    background-image: url("/src/assets/images/bg-welcome.jpg");
+    background-image: url("/src/assets/images/bgWelcome.jpg");
     background-size: cover;
     width:100%;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 }
 button {
     height: 40px;
-    width: 50%;
+    /* width: 50%; */
 }
 .right img {
     height: 100%;
