@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
-import './OpenEnded.css';
+import './OpenEnded.scss';
 
 function OpenEnded() { 
 
