@@ -1,6 +1,6 @@
 import React from 'react';
 import './Welcome.scss';
-// import girlLaptop from "./assets/images/girlLaptop.jpg";
+import girlLaptop from "../../assets/images/girlLaptop.jpg";
 
 function Welcome() {
     
@@ -33,7 +33,7 @@ function Welcome() {
                 </div>
             </div>
             <div className="right dflt-padding">
-                {/* <img src={girlLaptop} className="girlLaptop"></img> */}
+                <img src={girlLaptop} className="girlLaptop"></img>
             </div>
             
         </div>

@@ -1,6 +1,4 @@
-$blue:#00a3ad;
-$yellow:#FDCC08;
-
+@import "../../styles/Colors";
 .content{
     display: flex;
     margin: 15px 10%;
@@ -8,7 +6,7 @@ $yellow:#FDCC08;
 }
 
 .top-content {
-    // background-image: url("/src/assets/images/bgWelcome.jpg");
+    background-image: url("../../assets/images/bgWelcome.jpg");
     background-size: cover;
     width:100%;
     background-repeat: no-repeat;
@@ -24,8 +22,8 @@ $yellow:#FDCC08;
     margin:0 10%;
 }
 .incentive > div{
-    border : 1px solid #D1D7DA;
-    background-color: $blue;
+    border : 1px solid $grey-2;
+    background-color: $grey-1;
     margin-right: 10px;
     padding: 4px;
     font-size: 12px;
@@ -36,7 +34,7 @@ $yellow:#FDCC08;
 }
 button {
     height: 40px;
-    /* width: 50%; */
+    // width: 50%;
 }
 .right img {
     height: 100%;

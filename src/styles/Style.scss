@@ -1,24 +1,25 @@
+@import "./Colors";
 body {
-    background-color: #f1f4f6 !important;
+    background-color: $grey-0 !important;
     font-family: MarkPro !important;
     font-size: 14px !important;
-    color:black;
+    color: $black;
     background-repeat: no-repeat;
-    background-image: repeating-linear-gradient(10deg, #D1D7DA 1%, #D1D7DA 1%, #E3E9EC 10px),linear-gradient(70deg,#D1D7DA 30%,#FF6E7E);
+    background-image: repeating-linear-gradient(10deg, $grey-2 1%, $grey-2 1%, $grey-1 10px),linear-gradient(70deg, $grey-2 30%, $pink);
     background-blend-mode: difference;
 }
 [hidden] {
  display: none !important;
 }
 .bg-white {
-    background-color: white !important;
+    background-color: $white !important;
     box-shadow: 0 0 2rem 0 rgba(53,64,82,.1);
     border-bottom: 1px solid #ddd;
 }
 .bg-grey {
     /* background-color: #F1F4F6 !important; */
-    box-shadow: 1px 1px 4px #00a3ad;
-    border: 2px solid #00a3ad;
+    box-shadow: 1px 1px 4px $teal;
+    border: 2px solid $teal;
 }
 .dflt-padding {
     padding: 3%;
