@@ -1,3 +1,7 @@
+@import './Buttons.scss';
+@import './Icons.scss';
+
+
 body {
     background-color: #f1f4f6 !important;
     font-family: MarkPro !important;
@@ -248,3 +252,9 @@ input:-webkit-autofill:focus {
     }
     
 }}
+.float-end {
+    float: right;
+}
+.float-start {
+    float: left;
+}
