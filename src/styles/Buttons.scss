@@ -1,0 +1,19 @@
+@import './Colors.scss';
+
+
+.btn-primary {
+    background-color: $teal;
+}
+.btn-danger {
+    background-color: $red;
+}
+.btn-light {
+    background-color: $white;
+}
+.btn-close {
+    background-color: $white;
+    border: none;
+}
+.btn-light.border {
+    border: 1px solid $grey4 !important;
+}
