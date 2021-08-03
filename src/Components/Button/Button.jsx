@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './button.css';
+import './button.scss';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({ btnClass, size, border, label, ...props }) => {
+
+  const borderClass = border ? 'border': '';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
+      className={['btn', `storybook-button--${size}`, btnClass, borderClass].join(' ')}
       {...props}
     >
       {label}
@@ -23,11 +23,11 @@ Button.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
-  primary: PropTypes.bool,
+  btnClass: PropTypes.oneOf(['btn-primary', 'btn-danger', 'btn-light']),
   /**
-   * What background color to use
+   * Is border required or not
    */
-  backgroundColor: PropTypes.string,
+  border: PropTypes.bool,
   /**
    * How large should the button be?
    */
@@ -43,8 +43,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
+  btnClass: 'btn-primary',
   size: 'medium',
+  border: true,
   onClick: undefined,
 };
