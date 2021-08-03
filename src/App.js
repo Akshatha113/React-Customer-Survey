@@ -1,13 +1,25 @@
-import './App.css';
-import Header from './common/Header';
-import Footer from './common/Footer';
+// import logo from './logo.svg';
+import Welcome from './Screens/Welcome/Welcome';
+// import MixedType from './Components/MixedType/MixedType';
+import YesNo from './Components/YesNo/YesNo';
+import OpenEnded from './Components/OpenEnded/OpenEnded';
+import Header from './common/Header/Header';
+import Footer from './common/Footer/Footer';
+import Rating from './Components/RatingScale/RatingScale';
+import Ranking from './Components/Ranking/Ranking';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Footer />
-    </div>     
+    <div className="App">
+      <Header/>
+      {/* <MixedType/> */}
+      <YesNo/>
+      <OpenEnded/>
+      <Rating/>
+      <Ranking/>
+      <Welcome/>
+      <Footer/>
+    </div>
   );
 }
 
