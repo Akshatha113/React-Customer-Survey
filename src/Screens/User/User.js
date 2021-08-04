@@ -2,11 +2,18 @@ import React, {useState} from "react";
 import ActionCard from "../../Components/ActionCard/ActionCard";
 import SampleQuestion1 from "../../Components/SampleQuestion1/SampleQuestion1";
 import SampleQuestion2 from "../../Components/SampleQuestion2/SampleQuestion2";
+import YesNo from "../../Components/YesNo/YesNo";
+import OpenEnded from "../../Components/OpenEnded/OpenEnded";
+import MixedType from "../../Components/MixedType/MixedType";
 
 const User = () => {
     const [questionList, setQuestionList] = useState([
-        { id: 0, type: 'SampleQuestion1', data: { title: 'Enter the question here', buttons: ['Yes', 'No']}, edit: true },
-        { id: 1, type: 'SampleQuestion2', data: {}, edit: true }
+        // { id: 0, type: 'SampleQuestion1', data: { title: 'Enter the question here', buttons: ['Yes', 'No']}, edit: true },
+        // { id: 1, type: 'SampleQuestion2', data: {}, edit: true },
+        { id: 2, type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
+        { id: 3, type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
+        // { id: 4, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
+        
     ]);
 
     const onSave = (id) => {
@@ -49,8 +56,11 @@ const User = () => {
             onSave={onSave}
             onDelete={onDelete}
             onEdit={onEdit}>
-            {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+            {/* {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
+            {/* {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
+            {question.type === "YesNo" && <YesNo qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+            {question.type === "OpenEnded" && <OpenEnded qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+            {/* {question.type === "MixedType" && <MixedType qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
         </ActionCard>
         )});
     return (

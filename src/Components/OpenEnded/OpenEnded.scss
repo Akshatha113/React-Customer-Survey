@@ -1,33 +1,26 @@
+@import '../../styles/Colors';
+
 textarea {
     resize:none;
     width:100%;
 }
-
 .text-btns{
-    margin:10px;
+    margin-bottom:10px;
     width:100%;
-}
-
-.edit{
-    margin:0;
-    float:left;
-    width:130px;
-    height:35px;
-    background-color: white !important;
-    border:2px solid rgb(204, 204, 211);
+    .btns {
+        width:130px;
+        height:40px;
+        // border-radius: 0 !important;
+        background-color: $grey0 !important;
+    }
+    .edit{
+        border:2px solid $grey1;
+    }
+    .active{
+        box-shadow: 1px 1px 4px $teal;
+        border: 2px solid $teal;
+    }
 }
 .input-box {
     width:100%;
-}
-.input-box > input {
-    margin-bottom:10px;
-}
-.active{
-    margin:0;
-    float:left;
-    width:130px;
-    height:35px;
-    box-shadow: 1px 1px 4px #00a3ad;
-    border: 2px solid #00a3ad;
-    background-color: white !important;
 }
