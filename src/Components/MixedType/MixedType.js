@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import './MixedType.scss';
 
-function MIxedType() { 
-
+function MixedType() { 
+    return(
+        <div></div>
+    );
 }  
-export default MIxedType;
+export default MixedType;

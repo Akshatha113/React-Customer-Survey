@@ -1,16 +1,11 @@
-// import logo from './logo.svg';
 import Welcome from './Screens/Welcome/Welcome';
-import MixedType from './Components/MixedType/MixedType';
-import YesNo from './Components/YesNo/YesNo';
-import OpenEnded from './Components/OpenEnded/OpenEnded';
+import User from './Screens/User/User';
 
+// import './styles/Colors.scss';
 function App() {
   return (
-    <div className="App">
-      <MixedType/>
-      <YesNo/>
-      <OpenEnded/>
-      <Welcome/>
+    <div className="content">
+      <User/>
     </div>
   );
 }
