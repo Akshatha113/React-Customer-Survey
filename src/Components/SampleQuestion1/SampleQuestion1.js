@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 
-const SampleQuestion1 = ({ qno, data, id, isEdit = false, onUpdate}) => {
+const SampleQuestion1 = ({ qno, data ={ title: 'Question title goes here', buttons: ['Agree', 'Disagree'] }, id, isEdit = false, onUpdate}) => {
 
     const onTitleUpdate = (value) => {
         let tempData = { ...data };
