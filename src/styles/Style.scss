@@ -1,11 +1,14 @@
-@import "./Colors";
+@import './Buttons.scss';
+@import './Icons.scss';
+
+
 body {
-    background-color: $grey-0 !important;
+    background-color: $grey0 !important;
     font-family: MarkPro !important;
     font-size: 14px !important;
     color: $black;
     background-repeat: no-repeat;
-    background-image: repeating-linear-gradient(10deg, $grey-2 1%, $grey-2 1%, $grey-1 10px),linear-gradient(70deg, $grey-2 30%, $pink);
+    background-image: repeating-linear-gradient(10deg, $grey2 1%, $grey2 1%, $grey1 10px),linear-gradient(70deg, $grey2 30%, $pink);
     background-blend-mode: difference;
 }
 [hidden] {
@@ -17,7 +20,7 @@ body {
     border-bottom: 1px solid #ddd;
 }
 .bg-grey {
-    /* background-color: #F1F4F6 !important; */
+    background-color: #F1F4F6 !important;
     box-shadow: 1px 1px 4px $teal;
     border: 2px solid $teal;
 }
@@ -40,7 +43,7 @@ body {
     text-align: center;
 }
 .content {
-    display: flex;
+    // display: flex;
     margin: 15px 10%;
     flex-direction: row;
     /* //align-items: center;
@@ -249,3 +252,9 @@ input:-webkit-autofill:focus {
     }
     
 }}
+.float-end {
+    float: right;
+}
+.float-start {
+    float: left;
+}

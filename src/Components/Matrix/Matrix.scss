@@ -1,0 +1,15 @@
+@import '../../styles/Colors.scss';
+
+.grid-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    padding: 3px;
+    width:100%;
+  }
+  .grid-item {
+    padding: 2px;
+    font-size: 14px;
+    // text-align: center;
+    // min-width: 200px;
+  }

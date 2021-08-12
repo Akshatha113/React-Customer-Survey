@@ -1,0 +1,9 @@
+@import '../../styles/Colors';
+
+.card-header, .card-footer {
+    background-color: $white;
+    border:none;
+}
+.fa-pencil {
+    color:$pink;
+}

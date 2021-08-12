@@ -1,0 +1,28 @@
+@import './Colors.scss';
+
+.btn {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+.btn-primary {
+    background-color: $teal;
+}
+.btn-danger {
+    background-color: $red;
+}
+.btn-light {
+    background-color: $white;
+}
+.btn-close {
+    background-color: $white;
+    border: none;
+}
+.btn-light.border {
+    border: 1px solid $grey4 !important;
+}
