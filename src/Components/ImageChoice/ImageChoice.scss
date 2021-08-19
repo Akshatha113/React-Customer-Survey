@@ -1,0 +1,25 @@
+@import "../../styles/Colors";
+
+img {
+    height:100px;
+    width:100px;
+}
+.img-tab {
+    background-color: $grey2;
+    margin-right:10px;
+    padding:5px;
+}
+// .file {
+//     visibility: hidden;
+//     position: absolute;
+// }
+// .file-name {
+//     width:100% !important;
+// }
+.browse {
+    border:none;
+    background-color:$teal;
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important;
+    height:38px;
+}
