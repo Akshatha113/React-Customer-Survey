@@ -1,0 +1,33 @@
+textarea {
+    resize:none;
+    width:100%;
+}
+
+.text-btns{
+    margin:10px;
+    width:100%;
+}
+
+.edit{
+    margin:0;
+    float:left;
+    width:130px;
+    height:35px;
+    background-color: white !important;
+    border:2px solid rgb(204, 204, 211);
+}
+.input-box {
+    width:100%;
+}
+.input-box > input {
+    margin-bottom:10px;
+}
+.active{
+    margin:0;
+    float:left;
+    width:130px;
+    height:35px;
+    box-shadow: 1px 1px 4px #00a3ad;
+    border: 2px solid #00a3ad;
+    background-color: white !important;
+}

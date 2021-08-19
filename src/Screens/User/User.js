@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ActionCard from "../../Components/ActionCard/ActionCard";
 import SampleQuestion1 from "../../Components/SampleQuestion1/SampleQuestion1";
 import SampleQuestion2 from "../../Components/SampleQuestion2/SampleQuestion2";
+<<<<<<< HEAD
 import Rating from "../../Components/Rating/Rating";
 import Ranking from "../../Components/Ranking/Ranking";
 import Matrix from "../../Components/Matrix/Matrix";
@@ -13,6 +14,13 @@ const User = () => {
         { id: 2, type: 'Rating', data: { title: 'Enter the question here', buttons: ['Star', 'Number'], ansType:'Star', ans: ''}, edit: true },
         { id: 3, type: 'Ranking', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
         { id: 4, type: 'Matrix', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
+=======
+
+const User = () => {
+    const [questionList, setQuestionList] = useState([
+        { id: 0, type: 'SampleQuestion1', data: { title: 'Enter the question here', buttons: ['Yes', 'No']}, edit: true },
+        { id: 1, type: 'SampleQuestion2', data: {}, edit: true }
+>>>>>>> dev
     ]);
 
     const onSave = (id) => {
@@ -55,11 +63,16 @@ const User = () => {
             onSave={onSave}
             onDelete={onDelete}
             onEdit={onEdit}>
+<<<<<<< HEAD
             {/* {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
             {/* {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
             {question.type === "Rating" && <Rating qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
             {question.type === "Ranking" && <Ranking qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
             {question.type === "Matrix" && <Matrix qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+=======
+            {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+            {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
+>>>>>>> dev
         </ActionCard>
         )});
     return (
