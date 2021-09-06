@@ -19,36 +19,6 @@ const Question=()=> {
         
     ]);
 
-    // const onSave = (id) => {
-    //     updateEditFlag(id, true)
-    //     console.log("onSave", id, questionList);
-    // }
-    // const onDelete = (id) => {
-    //     let tempList = [...questionList];
-    //     tempList = questionList.filter((q) => q.id !== id);
-    //     setQuestionList(tempList);
-    // }
-    // const onEdit = (id) => {
-    //     updateEditFlag(id, false);
-    //     console.log("onEdit",id);
-    // }
-    // const onUpdate = (id, data) => {
-    //     console.log("onUpdate", id, data);
-    //     let tempList = [...questionList];
-    //     const index = tempList.findIndex(i => i.id === id)
-    //     let question = { ...questionList[index] };
-    //     question.data = data;
-    //     tempList[index] = question;
-    //     setQuestionList(tempList);
-    // }
-    // const updateEditFlag = (id, value) => {
-    //     let tempList = [...questionList];
-    //     const index = tempList.findIndex(i => i.id === id)
-    //     let question = { ...questionList[index] };
-    //     question.edit = value;
-    //     tempList[index] = question;
-    //     setQuestionList(tempList);
-    // }
     const onSave = (id) => {
         updateEditFlag(id, true)
         console.log("onSave", id, components);
@@ -96,26 +66,26 @@ const Question=()=> {
        console.log(components); 
     //    console.log(questionList);
     }
-    const rederQuestionList = components.map( (question,index) => { return (
-        <ActionCard
-            key={question.id}
-            isEdit={question.edit}
-            isDelete={true}
-            id={question.id}
-            onSave={onSave}
-            onDelete={onDelete}
-            onEdit={onEdit}>
-            {/* {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
-            {/* {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
-            {question.type === "YesNo" && <YesNo qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {question.type === "OpenEnded" && <OpenEnded qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {question.type === "MixedType" && <MixedType qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {question.type === "ImageChoice" && <ImageChoice qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-        </ActionCard>
-        )});
+    const rederQuestionList = components.map( (question,index) => {
+        switch(question.type) {
+            case 'YesNo': return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <YesNo qno={index+1} key={question.id} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'OpenEnded' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <OpenEnded key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'MixedType' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <MixedType key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'ImageChoice' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <ImageChoice key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            default : return null;
+        }
+    });
    
     return (
-        <div>
+        <div className="flex-display">
             <div className="comps">
                 
                 <div className="btns">
@@ -126,80 +96,23 @@ const Question=()=> {
                     </button>
                      )}  
                 </div>
-                {/* <div>
-                { components.map((qns,index) => 
-                    <div key={index}>{qns.type}</div>
-                     )}     
-                </div> */}
             </div>
-            {rederQuestionList}
             <div className="comps2">
                 <div className="flex-col">
                     <div className="survey-name">
                         <input type="text" maxLength={50} placeholder="Untitled Survey" className="input-field survey-title" 
                         ></input>
-                        {/* {errors.props.title && 'Please enter survey title' } */}
                     </div>
                     <div className="survey-desc">
                         <input type="text" placeholder="Untitled Survey Descrption" className="input-field survey-description font-bold" 
                         ></input>
-                        <div className="error-message">Please enter survey description.</div>
                     </div>
                 </div>
-                
+                {rederQuestionList}
            
             </div> 
             
         </div>
     );
-    // const dynamicComponents = [
-    //     {name:"ImageChoice",isDisable:false,comp:'Multi Select',icon:'fa fa-list'}, 
-    //     {name:"YesNo",isDisable:false,comp:'Yes or No',icon:'fa fa-thumbs-up'}, 
-    //     {name:"OpenEnded",isDisable:false,comp:'Matrix',icon:'fa fa-th'},
-    //     // {name:RatingScaleComponent,isDisable:false,comp:'Rating',icon:'fa fa-star'},
-    //     // {name:RankingComponent,isDisable:false,comp:'Ranking',icon:'fa fa-bar-chart'}, 
-    //     // {name:OpenEndedComponent,isDisable:false,comp:'Open Ended',icon:'fa fa-pencil'}, 
-    //     // {name:MixedTypeComponent,isDisable:false,comp:'Mixed Type',icon:'fa fa-tasks'},
-    //     // {name:ImageChoiceComponent,isDisable:false,comp:'Image Choice',icon:'fa fa-picture-o'}
-    // ];
-    // const loadComponent = () => {
-
-    // }
-    // return(
-    //     <div>
-    //         <div className="comps">
-                
-    //             <div className="btns">
-    //                 { dynamicComponents.map((qns,index) => 
-    //                 <button onClick={()=>loadComponent(qns.name)} key={index}>
-    //                     <span className={qns.icon}></span>
-    //                     {qns.comp}
-    //                 </button>
-    //                  )}  
-    //             </div>
-               
-    //         </div>
-
-    //         <div className="comps2">
-    //             <div className="flex-col">
-    //                 <div className="survey-name">
-    //                     <input type="text" maxLength={50} placeholder="Untitled Survey" className="input-field survey-title" 
-    //                     ></input>
-    //                     {/* {errors.props.title && 'Please enter survey title' } */}
-    //                 </div>
-    //                 <div class="survey-desc">
-    //                     <input type="text" placeholder="Untitled Survey Descrption" className="input-field survey-description font-bold" 
-    //                     ></input>
-    //                     <div className="error-message">Please enter survey description.</div>
-    //                 </div>
-    //             </div>
-                
-    //             <div>
-
-    //             </div>
-    //         </div>
-
-    //     </div>
-    // );
 }
 export default Question;

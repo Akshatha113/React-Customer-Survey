@@ -6,19 +6,10 @@ textarea {
 }
 .text-btns{
     margin-bottom:10px;
-    width:100%;
     .btns {
         width:130px;
         height:40px;
         // border-radius: 0 !important;
-        background-color: $grey0 !important;
-    }
-    .edit{
-        border:2px solid $grey1;
-    }
-    .active{
-        box-shadow: 1px 1px 4px $teal;
-        border: 2px solid $teal;
     }
 }
 .input-box {

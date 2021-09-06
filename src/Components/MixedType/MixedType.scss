@@ -1,0 +1,14 @@
+@import '../../styles/Colors.scss';
+.mixed {
+    width:100%;
+    input[type=radio] {
+        margin: 0px;
+    }
+    .optionName {
+        margin-left:10px;
+    }
+    input[type=radio]:before {
+        border-radius:20% !important;
+        font-size: 15px;
+    }
+}

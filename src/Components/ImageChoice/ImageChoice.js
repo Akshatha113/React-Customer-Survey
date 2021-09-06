@@ -2,6 +2,17 @@ import React, {useRef} from 'react';
 import './ImageChoice.scss';
 
 const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> { 
+
+    const onFieldUpdate = (field,value,index) => {
+        let tempData = { ...data };
+        if(field==="TITLE"){
+            tempData.title = value; 
+        }
+        if(field==="SELECTED"){
+            tempData.tabs[index].selected = !tempData.tabs[index].selected;
+        }
+        onUpdate(id,tempData);
+    }
    
     const onTitleUpdate = (value) => {
         let tempData = { ...data };
@@ -57,7 +68,7 @@ const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> {
     });
     const renderImages = data.tabs.map((tab, index) => {
         return (
-            <div key={index} className="img-tab" onClick={()=>selectTabs(index)} style={{backgroundColor: tab.selected===true ? '#00a3ad' : '#F1F4F6' }}>
+            <div key={index} className={tab.selected===true ? "img-tab active" : "img-tab"} onClick={()=>onFieldUpdate("SELECTED",tab,index)}> 
                 <img src={tab.value} alt="image"></img>
             </div>
         )   
@@ -68,7 +79,7 @@ const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> {
             <div className="card-box">
                 <h5 className="card-title">
                     {isEdit && <span className="question font-bold">{data.title}</span>}
-                    {!isEdit && <input type="text" className="form-control" value={data.title} onChange={onTitleUpdate}/>}
+                    {!isEdit && <input type="text" className="form-control" value={data.title} onChange={(e)=>onFieldUpdate("TITLE",e.target.value)}/>}
                 </h5>
                 <div className="" role="group" aria-label="Basic outlined example">
                     { !isEdit && renderButton}

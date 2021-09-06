@@ -5,6 +5,7 @@ import SampleQuestion2 from "../../Components/SampleQuestion2/SampleQuestion2";
 import YesNo from "../../Components/YesNo/YesNo";
 import OpenEnded from "../../Components/OpenEnded/OpenEnded";
 import MixedType from "../../Components/MixedType/MixedType";
+import ImageChoice from "../../Components/ImageChoice/ImageChoice";
 
 const User = () => {
     const [questionList, setQuestionList] = useState([
@@ -12,7 +13,8 @@ const User = () => {
         // { id: 1, type: 'SampleQuestion2', data: {}, edit: true },
         { id: 2, type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
         { id: 3, type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
-        // { id: 4, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
+        { id: 4, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
+        { id: 5, type: 'ImageChoice', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
         
     ]);
 
@@ -46,25 +48,48 @@ const User = () => {
         tempList[index] = question;
         setQuestionList(tempList);
     }
+    const rederQuestion = questionList.map( (question,index) => { 
+        switch(question.type) {
+            case 'YesNo': return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <YesNo qno={index+1} key={question.id} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'OpenEnded' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <OpenEnded key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'MixedType' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <MixedType key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'ImageChoice' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <ImageChoice key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            default : return null;
+        }
+    });
+    // const rederQuestionList = questionList.map( (question,index) => {    return (
+    //     <ActionCard
+    //         key={question.id}
+    //         isEdit={question.edit}
+    //         isDelete={true}
+    //         id={question.id}
+    //         onSave={onSave}
+    //         onDelete={onDelete}
+    //         onEdit={onEdit}> 
+    //         {
+    //             (()=>{
+    //                 switch(question.type) {
+    //                 case 'YesNo': return (<YesNo qno={index+1} key={question.id} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
+    //                 case 'OpenEnded' : return (<OpenEnded key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
+    //                 case 'MixedType' : return (<MixedType key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>); 
+    //                 case 'ImageChoice' : return( <ImageChoice key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
+    //                 default : return null; 
+    //                 }
+    //             })
 
-    const rederQuestionList = questionList.map( (question,index) => { return (
-        <ActionCard
-            key={question.id}
-            isEdit={question.edit}
-            isDelete={true}
-            id={question.id}
-            onSave={onSave}
-            onDelete={onDelete}
-            onEdit={onEdit}>
-            {/* {question.type === "SampleQuestion1" && <SampleQuestion1 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
-            {/* {question.type === "SampleQuestion2" && <SampleQuestion2 qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
-            {question.type === "YesNo" && <YesNo qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {question.type === "OpenEnded" && <OpenEnded qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {/* {question.type === "MixedType" && <MixedType qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
-        </ActionCard>
-        )});
+    //         }
+    //     </ActionCard>
+    // )});
     return (
-        <div>{rederQuestionList}</div>
+        <div>{rederQuestion}</div>
     );
 }
 
