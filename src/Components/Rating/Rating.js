@@ -4,26 +4,24 @@ import './Rating.scss';
 
 const Rating=({ qno, data, id, isEdit = false, onUpdate})=> { 
     
-    const onTitleUpdate = (value) => {
+    const onFieldUpdate = (field,value) => {
         let tempData = { ...data };
-        tempData.title = value.target.value;
-        onUpdate(id,tempData);
-    }
-    const onButtonDetailsUpdate = (value) => {
-        let tempData = {...data};
-        tempData.ans= value.target.value;
-        onUpdate(id,tempData);
-    }
-    const selectTabs = (index, value) => {
-        let tempData = {...data};
-        tempData.ansType = value;
+        if(field==="TITLE"){
+            tempData.title = value; 
+        }
+        if(field==="ANSWER"){
+            tempData.ans= value; 
+        }
+        if(field==="SELECTED"){
+            tempData.ansType = value;
+        }
         onUpdate(id,tempData);
     }
     const renderButton = data.buttons.map((button, index) => {
         return (<button key={index} type="button"  
-        className={data.ansType===button ? "btns bg-grey": "btns edit"}
-        onClick={()=>selectTabs(index,button)}> 
-        {button} Rating</button>);
+        className={data.ansType===button ? "btns bg-grey active": "btns bg-grey"}
+        onClick={()=>onFieldUpdate("SELECTED",button)}> 
+        {button}Rating</button>);
     });
     const [rating,setRating] = useState(0);
     const [hover, setHover] = useState(0);
@@ -34,10 +32,10 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
             <div className="card-box">
                 <h5 className="card-title flex-display">
                     {isEdit && <span className="question font-bold">{data.title}</span>}
-                    {!isEdit && <input type="text" value={data.title} onChange={onTitleUpdate}/>}
+                    {!isEdit && <input type="text" value={data.title} onChange={(e)=>onFieldUpdate("TITLE",e.target.value)}/>}
                 </h5>
                 <div className="" role="group" aria-label="Basic outlined example">
-                    <div className="flex-display text-btns">{renderButton}</div>
+                    <div className="flex-display text-btns float-end">{renderButton}</div>
                     <div className="input-box">
                         {data.ansType==='Star' && 
                         <div >
@@ -45,11 +43,11 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                                     index += 1;
                                     return (
                                         <button type="button" key={index} value={data.ans}
-                                            className={index <= (hover || rating) ? "on" : "off"}
+                                            className={index <= (hover || rating) ? "active" : "inactive"}
                                             onClick={() => setRating(index)}
                                             onMouseEnter={() => setHover(index)}
                                             onMouseLeave={() => setHover(rating)}
-                                            onChange={onButtonDetailsUpdate}>
+                                            onChange={(e)=>onFieldUpdate("ANSWER",e.target.value)}>
                                             <i className="fa fa-star" value={data.ans}></i>
                                         </button>
                                     );
@@ -64,7 +62,7 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                                             onClick={() => setRating(index)}
                                             onMouseEnter={() => setHover(index)}
                                             onMouseLeave={() => setHover(rating)}
-                                            onChange={onButtonDetailsUpdate}>
+                                            onChange={(e)=>onFieldUpdate("ANSWER",e.target.value)}>
                                             <span>{index+1}</span>
                                         </button>
                                     );

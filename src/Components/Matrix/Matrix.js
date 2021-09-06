@@ -5,28 +5,26 @@ import './Matrix.scss';
 
 const Matrix=({ qno, data, id, isEdit = false, onUpdate})=> { 
     
-    const onTitleUpdate = (value) => {
+    const onFieldUpdate = (field,value) => {
         let tempData = { ...data };
-        tempData.title = value.target.value;
-        onUpdate(id,tempData);
-    }
-    const onButtonDetailsUpdate = (value) => {
-        let tempData = {...data};
-        tempData.ans= value.target.value;
-        onUpdate(id,tempData);
-    }
-    const selectTabs = (index, value) => {
-        let tempData = {...data};
-        tempData.ansType = value;
+        if(field==="TITLE"){
+            tempData.title = value; 
+        }
+        if(field==="ANSWER"){
+            tempData.ans= value; 
+        }
+        if(field==="SELECTED"){
+            tempData.ansType = value;
+        }
         onUpdate(id,tempData);
     }
 
     const [optionList, setOptionList] = useState([
-        {name:'Quention 1', value: ''},
-        {name:'Quention 2', value: ''},
-        {name:'Quention 3', value: ''},
-        {name:'Quention 4', value: ''},
-        {name:'Question 5', value: ''}
+        {name:'Option 1', value: ''},
+        {name:'Option 2', value: ''},
+        {name:'Option 3', value: ''},
+        {name:'Option 4', value: ''},
+        {name:'Option 5', value: ''}
     ]);
     const [labels, setLabels] = useState(['strongly agree','agree', 'neutral', 'disagree', 'strong disagree']);
 
@@ -46,20 +44,20 @@ const Matrix=({ qno, data, id, isEdit = false, onUpdate})=> {
             <div className="card-box">
                 <h5 className="card-title flex-display">
                     {isEdit && <span className="question font-bold">{data.title}</span>}
-                    {!isEdit && <input type="text" value={data.title} onChange={onTitleUpdate}/>}
+                    {!isEdit && <input type="text" value={data.title} onChange={(e)=>onFieldUpdate("TITLE",e.target.value)}/>}
                 </h5>
                 <div className="" role="group" aria-label="Basic outlined example">
                     <div className="flex-display text-btns"></div>
                     <div className="ui grid">
-            <div className="ui row">
-                <div className="grid-container">
-                    {renderRadioLabelsItems}
-                </div>
-                <br />
-                <RadioItem list={optionList} labels={labels} onItemSelect={onSelect}/>
-                <br />
-            </div>
-        </div>
+                        <div className="ui row">
+                            <div className="grid-container">
+                                {renderRadioLabelsItems}
+                            </div>
+                            <br />
+                            <RadioItem list={optionList} labels={labels} onItemSelect={onSelect}/>
+                            <br />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

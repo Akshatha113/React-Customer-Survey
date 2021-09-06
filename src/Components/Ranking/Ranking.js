@@ -4,23 +4,20 @@ import './Ranking.scss';
 
 const Ranking=({ qno, data, id, isEdit = false, onUpdate})=> {
 
-    const onTitleUpdate = (value) => {
+    const onFieldUpdate = (field,value) => {
         let tempData = { ...data };
-        tempData.title = value.target.value;
+        if(field==="TITLE"){
+            tempData.title = value; 
+        }
+        if(field==="ANSWER"){
+            tempData.ans= value; 
+        }
+        if(field==="SELECTED"){
+            tempData.ansType = value;
+        }
         onUpdate(id,tempData);
     }
-    const onButtonDetailsUpdate = (index, value) => {
-        let tempData = {...data};
-        tempData.buttons[index]= value;
-        console.log(tempData)
-        onUpdate(id,tempData);
-    }
-    const selectTabs = (index, value) => {
-        let tempData = {...data};
-        tempData.ans = value;
-        onUpdate(id,tempData);
-    }
-    const handleDragEnter = (e, index) => {
+    const handleDragEnter = (_e, index) => {
         // e.target.style.backgroundColor = "#336699";
         const newList = [...list];
         const item = newList[dragItem];
@@ -43,33 +40,20 @@ const Ranking=({ qno, data, id, isEdit = false, onUpdate})=> {
     "Team Lead",
     "Application Analyst",
     "Project Manager",
-    "CEO",
-    "Network Security",
-    "Programmer",
-    "Testing",
-    "PMO Lead",
+    // "CEO",
+    // "Network Security",
+    // "Programmer",
+    // "Testing",
+    // "PMO Lead",
     ]);
-    const renderButton = data.buttons.map((button, index) => {
-        return (
-        <button key={index} type="button"
-        // style={{backgroundColor: button===data.ans ? '#00a3ad' : '#F1F4F6' }}
-        className={button===data.ans ? "btn bg-grey thumb active" : "btn bg-grey thumb"}
-        onClick={()=>selectTabs(index,button)}> 
-            <input type="radio" key={index} checked={button===data.ans} onChange={()=>selectTabs(index,button)} 
-            className="radio-check"></input>{button}</button>
-        );
-    });
-    const renderInputButton = data.buttons.map((button, index) => {
-        return (
-            <input type="text" key={index} className="form-control" value={button} onChange={(e) => onButtonDetailsUpdate(index,e.target.value)} />);
-    });
+
     return (
         <div className="card-body flex-display">
             <span className="question font-bold">{qno}.</span>
             <div className="card-box">
                 <h5 className="card-title flex-display">
                     {isEdit && <span className="question font-bold">{data.title}</span>}
-                    {!isEdit && <input type="text" value={data.title} onChange={onTitleUpdate}/>}
+                    {!isEdit && <input type="text" value={data.title} onChange={(e)=>onFieldUpdate("TITLE",e.target.value)}/>}
                 </h5>
                 <div className="flex-display content-left line font-bold">              
                     <ul className="dnd">
@@ -98,8 +82,7 @@ const Ranking=({ qno, data, id, isEdit = false, onUpdate})=> {
                     </ul>                        
                 </div>
             </div>
-            </div>
-      
+        </div>      
     );
 }
 export default Ranking;

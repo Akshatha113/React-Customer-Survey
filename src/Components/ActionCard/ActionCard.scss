@@ -1,6 +1,9 @@
-@import '../../styles/Colors';
+@import '../../styles/Colors.scss';
 
 .card-header, .card-footer {
     background-color: $white;
     border:none;
+}
+.fa-pencil {
+    color:orange;
 }
