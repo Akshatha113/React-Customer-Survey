@@ -1,0 +1,59 @@
+@import '../../styles/Colors';
+
+textarea {
+    resize:none;
+    width:100%;
+}
+.text-btns{
+    margin-bottom:10px;
+    .btns {
+        width:130px;
+        height:40px;
+        // border-radius: 0 !important;
+    }
+}
+.input-box {
+    width:100%;
+}
+// .rate{
+//     width:100%;
+// }
+button {
+    // background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.active {
+    background-color: transparent !important;
+    color: $teal;
+}
+.inactive {
+    background-color: transparent !important;
+    color: $grey2;
+}
+.true{
+    background-color: $teal;
+    color: $teal;
+    margin: 10px;
+    box-shadow: 1px 1px 4px $teal;
+    border: 2px solid $teal;
+}
+.false{
+    color: $grey0;
+    background-color: $grey1;
+    margin: 10px;
+    box-shadow: 1px 1px 4px $teal;
+    border: 2px solid $teal;
+}
+button:focus {
+    outline: none !important ; 
+    // outline: -webkit-focus-ring-color auto 5px; 
+}
+.fa{
+    font-size: 30px !important;
+}
+span{
+    margin: 5px;
+    color: $black;
+}

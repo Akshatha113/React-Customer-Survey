@@ -1,0 +1,24 @@
+@import '../../styles/Colors.scss';
+
+input[type=radio] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
+  margin:0 10px;
+}
+input[type=radio]:before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  font-size: 20px;
+  color: transparent !important;
+  background: $white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50% !important;
+}
+
+input[type=radio]:checked:before {
+  color: $teal !important;
+} 
