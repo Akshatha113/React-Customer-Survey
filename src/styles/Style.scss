@@ -17,13 +17,39 @@ body {
 .bg-white {
     background-color: $white !important;
     box-shadow: 0 0 2rem 0 rgba(53,64,82,.1);
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $grey1;
 }
 .bg-grey {
-    /* background-color: #F1F4F6 !important; */
-    box-shadow: 1px 1px 4px $teal;
-    border: 2px solid $teal;
+    background-color: $grey0 !important;
+    box-shadow: 1px 1px 4px $grey4;
+    border: 2px solid $grey4;
 }
+.active {
+    background-color: $teal;
+    color: $white;
+}
+input[type=radio] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    outline: none;
+    content: none;
+    margin:0 10px;
+}
+input[type=radio]:before {
+    font-family: "FontAwesome";
+    content: "\f00c";
+    font-size:20px;
+    color: transparent !important;
+    background: $grey2;
+    width: 20px;
+    height: 20px;
+    border-radius: 20% !important;
+    border: 1px solid $grey4;
+}
+input[type=radio]:checked:before {
+    color: $teal !important;
+} 
 .dflt-padding {
     padding: 3%;
 }
@@ -31,13 +57,13 @@ body {
     font-family: MarkPro-Bold;
 }
 .white-text {
-    color:#FFFFFF;
+    color:$white;
 }
 .yellow-text {
-    color: #FDCC08;
+    color: $yellow;
 }
 .blue-text {
-    color: #00A3AD;
+    color: $teal;
 }
 .center-align {
     text-align: center;
@@ -57,7 +83,7 @@ body {
     align-items: center;
 }
 button {
-    background-color: #FDCC08;
+    background-color: $yellow;
     border: none;
     outline: none;
     cursor: pointer;
@@ -66,9 +92,6 @@ button {
     border-radius: 4px !important;
     font-family: markPro-Bold !important;
 }
-/* // button:hover {
-//     opacity: 1.0;
-// } */
 .flex-display {
     display:flex;
     flex-direction: row;
@@ -90,15 +113,15 @@ label {
     margin-right: 10px;
 }
 select,input[type="text"], input[type="phone"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"] {
-    color: #acafb2;
+    color: $grey3;
     /* margin-top: 10px !important; */
     height: 38px;
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     font-size: 14px !important;
-    color: black;
+    color: $black;
     border-style: solid;
     border-width: 1px;
-    border-color: #ccc;
+    border-color: $grey2;
     /* //font-family: inherit; */
     font-size: .875rem;
     line-height: normal;
@@ -106,11 +129,10 @@ select,input[type="text"], input[type="phone"], input[type="password"], input[ty
     border-radius: 0;
     width:100%;
 }
-input[type=radio]:before {
-    border: 1px solid #888A8C;
-}
 .active {
-    background-color:#00a3ad !important;
+    background-color: $teal !important;
+    box-shadow: 1px 1px 4px $teal;
+    border: 2px solid $teal;
     cursor: pointer;
 }
 .input-field {
@@ -163,16 +185,16 @@ input[type=radio]:before {
 }
 .add-tab {
     margin-top: 10px;
-    margin-left:10px;
+    background-color: $grey2;
 }
 .save-tab{
     margin-top: 10px;
-    background-color: #D1D7DA;
+    background-color: $grey2;
     border: 2px solid #acafb2;
     /* float: right; */
 }
 .save-tab:hover{
-    background-color:#acafb2;
+    background-color: $grey3;
 }
 .edit-tab{
     background-color: #D1D7DA;
@@ -186,8 +208,8 @@ input[type=radio]:before {
 .delete-tab {
     /* // margin-left:10px; */
     /* // margin-right:10px; */
-    background-color: #D1D7DA;
-    margin-top: 18px !important;
+    background-color: $grey2;
+    // margin-top: 18px !important;
     font-size: 18px !important;
     margin: 10px;
     height: 0px;
@@ -257,4 +279,10 @@ input:-webkit-autofill:focus {
 }
 .float-start {
     float: left;
+}
+.fs-24 {
+    font-size: 24px;
+}
+.mb-10 {
+    margin-bottom: 10px;
 }
