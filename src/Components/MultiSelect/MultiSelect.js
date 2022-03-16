@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
-import './ImageChoice.scss';
+import './MultiSelect.scss';
 
-const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> { 
+const MultiSelect=({ qno, data, id, isEdit = false, onUpdate})=> { 
 
     const onFieldUpdate = (field,value,index) => {
         let tempData = { ...data };
@@ -46,11 +46,8 @@ const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> {
     }
     const renderButton = data.tabs.map((tab, index) => {
         return (
-            <div className="flex-display mb-10"  key={index}>
-                <input type="file" ref={e=>inputElement.current[index]=e} style={{display:"none"}} onChange={(e)=>onFileChanged(e,index)} ></input>
-                <input type="text" className="input-field file-name" disabled value={tab.name} placeholder="Upload File"></input>
-                   
-                <button type="button"  onClick={()=>inputElement.current[index].click()} className="browse btn btn-primary">Browse</button>
+            <div className="flex-display" style={{marginBottom:"10px"}} key={index}>
+                
                 <button onClick={()=>deleteRow(index)} className="delete-tab"><i className="fa fa-trash-o"></i></button>
             </div> 
         );
@@ -80,4 +77,4 @@ const ImageChoice=({ qno, data, id, isEdit = false, onUpdate})=> {
         </div>
     );
 }  
-export default ImageChoice;
+export default MultiSelect;
