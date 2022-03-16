@@ -1,0 +1,51 @@
+@import "../../../styles/Colors";
+
+.comps
+{
+    width:20%;
+}
+.btns button {
+    height:100%;
+    width:100%;
+    margin:5px 0;
+    background-color: $grey0;
+    text-align: start;
+    border: 2px solid $teal;
+    box-shadow: 1px 1px 4px $teal;
+    span {
+        margin: 0 20px;
+    }
+}
+.btns button:hover {
+    background-color:$teal;
+}
+.comps2 {
+    width:80%;
+    margin-left:10px;
+}
+.survey-name, .survey-desc {
+    width:100%;
+    input,
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus {
+        // border: 1px solid grey  !important;
+        border:0 !important;
+        border-bottom: 1px solid $grey2 !important;
+        //   -webkit-text-fill-color: #ACAFB2 !important;
+        -webkit-box-shadow: 0 0 0px 1000px $grey0 inset !important;
+                box-shadow: 0 0 0px 1000px $grey0 inset !important;
+        transition: background-color 5000s ease-in-out 0s !important;
+        font-family: MarkPro-Bold;
+        height:30px;
+        line-height: 1.6;
+        margin:5px 0;
+    }
+    .survey-title {
+        font-size:16px !important;
+        // color: #ACAFB2 !important;
+    }
+    .survey-description {
+        -webkit-text-fill-color: $grey3 !important;
+    }
+}
