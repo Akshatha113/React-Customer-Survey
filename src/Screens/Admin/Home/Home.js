@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 import './Home.scss';
 
 const Home=()=> {
@@ -22,7 +24,7 @@ const Home=()=> {
                 </div>
                 <div className="col-xl-6 col-sm-6 new-survey" style={{width:"50%"}}>
                     
-                        <button type="button" className="font-bold float-end"><i className="fa fa-plus" ></i> New Survey</button>
+                        <button type="button" className="font-bold float-end"><i className="fa fa-plus" ></i> <Link className="survey-btn-link" to="/qns">New Survey</Link></button>
                    
         
                 </div>
@@ -77,4 +79,9 @@ const Home=()=> {
     );    
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  ...state
+ })
+
+
+export default connect(mapStateToProps)(Home);
