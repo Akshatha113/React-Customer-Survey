@@ -1,26 +1,26 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+
+import {Route, Routes} from 'react-router-dom';
 import './App.scss';
+import Layout from './common/Layout/Layout'
 import Welcome from './Screens/Welcome/Welcome';
 import User from './Screens/User/User';
-import Header from './common/Header/Header';
-import Footer from './common/Footer/Footer';
 import Home from './Screens/Admin/Home/Home';
 import Question from './Screens/Admin/Question/Question';
+
 
 
 // import './styles/Colors.scss';
 function App() {
   return (
-    
-    <div>
-      <div className="content">
-        <Header/>
-        <Home/>
-        <User/>
-      </div>
-      <div>
-        <Footer/>
-      </div>
+    <div className="content">
+      <Layout>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/qns" element={<Question/>} />
+        <Route exact path="/user" element={<User/>} />        
+        <Route exact path="/welcome" element={<Welcome/>} />
+      </Routes>
+      </Layout>
     </div>
   );
 }
