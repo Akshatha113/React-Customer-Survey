@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import './Home.scss';
 
 const Home=()=> {
@@ -75,4 +76,9 @@ const Home=()=> {
     );    
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  ...state
+ })
+
+
+export default connect(mapStateToProps)(Home);
