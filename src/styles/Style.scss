@@ -1,13 +1,15 @@
 @import './Buttons.scss';
 @import './Icons.scss';
-
-
+html, #root, .app {
+    height: 100%;
+}
 body {
     background-color: $grey0 !important;
     font-family: MarkPro !important;
     font-size: 14px !important;
     color: $black;
-    background-repeat: no-repeat;
+    height: 100%;
+    // background-repeat: no-repeat;
     background-image: repeating-linear-gradient(10deg, $grey2 1%, $grey2 1%, $grey1 10px),linear-gradient(70deg, $grey2 30%, $pink);
     background-blend-mode: difference;
 }

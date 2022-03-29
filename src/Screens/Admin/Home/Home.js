@@ -2,7 +2,6 @@ import React from "react";
 import './Home.scss';
 
 const Home=()=> {
-
     const searchFilter=(value)=> {
         console.log(value);
         return value.toLowerCase()
@@ -22,7 +21,10 @@ const Home=()=> {
                     </div>
                 </div>
                 <div className="col-xl-6 col-sm-6 new-survey" style={{width:"50%"}}>
-                    <button type="button" className="font-bold float-end"><i className="fa fa-plus" ></i> New Survey</button>
+                    
+                        <button type="button" className="font-bold float-end"><i className="fa fa-plus" ></i> New Survey</button>
+                   
+        
                 </div>
             </div>
         )    

@@ -26,7 +26,7 @@ const Matrix=({ qno, data, id, isEdit = false, onUpdate})=> {
         {name:'Option 4', value: ''},
         {name:'Option 5', value: ''}
     ]);
-    const [labels, setLabels] = useState(['strongly agree','agree', 'neutral', 'disagree', 'strong disagree']);
+    const [labels, setLabels] = useState(['strongly agree','agree', 'neutral', 'disagree', 'strongly disagree']);
 
     const onSelect = (value,index) => {
         let tempData = [...optionList];

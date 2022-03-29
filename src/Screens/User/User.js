@@ -5,7 +5,6 @@ import SampleQuestion2 from "../../Components/SampleQuestion2/SampleQuestion2";
 import Rating from "../../Components/Rating/Rating";
 import Ranking from "../../Components/Ranking/Ranking";
 import Matrix from "../../Components/Matrix/Matrix";
-// import MultiSelect from "../../Components/MultiSelect/MultiSelect";
 import YesNo from "../../Components/YesNo/YesNo";
 import OpenEnded from "../../Components/OpenEnded/OpenEnded";
 import MixedType from "../../Components/MixedType/MixedType";
@@ -14,13 +13,14 @@ import MultiSelect from "../../Components/MultiSelect/MultiSelect";
 
 const User = () => {
     const [questionList, setQuestionList] = useState([
-        { id: 0 type: 'Rating', data: { title: 'Enter the question here', buttons: ['Star', 'Number'], ansType:'Star', ans: ''}, edit: true },
-        { id: 1 type: 'Ranking', data: { title: 'Enter the question here', ans: ''}, edit: true },
-        { id: 2 type: 'Matrix', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
-        { id: 3 type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
-        { id: 4 type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
-        { id: 5 type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: '', options : ['Very satisfied','Satisfied', 'Neutral', 'Dissatisfied','Very dissatisfied']}, edit: true },
-        { id: 6 type: 'ImageChoice', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
+        { id: 0, type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
+        { id: 1, type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
+        // { id: 2, type: 'MultiSelect', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'option1',name:'',selected:false},{ id:'2', value:'option2',name:'',selected:false},{ id:'3', value:'option3',name:'',selected:false}]}, edit: true },
+        { id: 3, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: '', options : ['Very satisfied','Satisfied', 'Neutral', 'Dissatisfied','Very dissatisfied']}, edit: true },
+        { id: 4, type: 'ImageChoice', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
+        { id: 5, type: 'Rating', data: { title: 'Enter the question here', buttons: ['Star', 'Number'], ansType:'Star', ans: ''}, edit: true },
+        { id: 6, type: 'Ranking', data: { title: 'Enter the question here', ans: ''}, edit: true },
+        { id: 7, type: 'Matrix', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
     ]);
 
     const onSave = (id) => {
@@ -70,29 +70,18 @@ const User = () => {
             case 'MultiSelect' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
             <MultiSelect key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
             </ActionCard>
+            case 'Rating' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Rating key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'Ranking' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Ranking key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'Matrix' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Matrix key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
             default : return null;
         }
     });
-    // const rederQuestionList = questionList.map( (question,index) => {    return (
-    //     <ActionCard
-    //         key={question.id}
-    //         isEdit={question.edit}
-    //         isDelete={true}
-    //         id={question.id}
-    //         onSave={onSave}
-    //         onDelete={onDelete}
-    //         onEdit={onEdit}> 
-    //         {
-    //             (()=>{
-    //                 switch(question.type) {
-    //                 case 'YesNo': return (<YesNo qno={index+1} key={question.id} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
-    //                 case 'OpenEnded' : return (<OpenEnded key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
-    //                 case 'MixedType' : return (<MixedType key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>); 
-    //                 case 'ImageChoice' : return( <ImageChoice key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>);
-    //                 default : return null; 
-    //                 }
-    //             })
-
 
     const rederQuestionList = questionList.map( (question,index) => { return (
         <ActionCard
@@ -108,7 +97,7 @@ const User = () => {
             {question.type === "Rating" && <Rating qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
             {question.type === "Ranking" && <Ranking qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
             {question.type === "Matrix" && <Matrix qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
-            {/* {question.type === "MultiSelect" && <MultiSelect qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>} */}
+            {question.type === "MultiSelect" && <MultiSelect qno={index} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>}
         </ActionCard>
         )});
     return (
