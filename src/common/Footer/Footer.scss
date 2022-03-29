@@ -1,0 +1,82 @@
+@import '../../styles/Colors.scss';
+footer {
+    // margin-top: auto;
+    bottom: 0 !important;
+    // margin: 0;
+    width: 100%;
+    // position: absolute;
+    background:#000;
+    padding: 15px 0px;
+    font-family: markPro-Bold;
+	font-size: 15px;
+}
+.rows{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.row1{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.head{
+    color: white;
+}
+ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:25%;
+}
+a {
+	color: teal;
+	text-decoration: none;
+}
+a:hover, a:active {
+	color:#ff6e7e;;
+}
+.icon {
+	font-size:14px;
+    text-align: right;
+	// margin-left:30px;
+    color: rgb(185, 185, 185);
+    width: 35%;
+}
+.support1 {
+	width: 60%;
+    display: flex;
+    text-align: left;
+    flex-flow: row wrap;
+}
+.foot{
+    padding: 5px;
+    margin-right: 5px;
+}
+.follow {
+    margin-left: 25%;
+}
+.icons li{
+    margin-right: 10px;
+    font-size: 30px;
+}
+.icons i {
+    color: $grey1 !important;
+}
+@media only screen and (max-width: 767px){
+    .rows, .row1 {
+        flex-direction: column;
+        margin: 10px;
+    }
+    .follow {
+        margin-left: 10px;
+    }
+    .icon{
+        margin: 0px;
+        text-align: left;
+    }
+    ul, .support1, .icon{
+        width: 100%;
+        margin: 10px;
+    }
+}

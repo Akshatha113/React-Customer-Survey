@@ -1,0 +1,50 @@
+[
+    {
+
+        "id": 1,
+    
+        "title": "Example survey-1",
+    
+        "description": "Demo survey-1, you can refer this survey",
+    
+        "list": [
+    
+            {
+    
+                "type":"YesNo",
+    
+                "title":"Do you like this website?",
+    
+                "buttons": ["Yes", "No"], 
+
+                "ans": "Yes"
+                
+            },
+    
+            {
+    
+                "type":"RatingScale",
+    
+                "title":"How satisfied are you with your job ?",
+    
+                "buttons": ["Star", "Number"],
+                "ansType":  "Star", 
+                "ans": ""
+    
+            },
+    
+            {
+    
+                "type":"OpenEnded",
+    
+                "title":"Desscribe about your skills and technologies",
+    
+                "buttons": ["Short", "Long"],
+                "ansType": "Short", 
+                "ans": ""
+    
+            }
+    
+        ]
+    }    
+]
