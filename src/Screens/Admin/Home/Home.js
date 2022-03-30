@@ -1,36 +1,24 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { useState,useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import { addSurveyAction } from '../../../store/actions/addSurveyAction';
 import { Link } from "react-router-dom";
 import "./Home.scss";
+import API from "../../../utils/ApiCalls";
 
 const Home = () => {
-  const [surveyTemplates,setSurveyTemplates]=useState([
-    {
-      title: "Survey 1",
-      description: "Demo Template for  skill survey",
-      qCount: 4,
-    },
-    {
-      title: "Survey 2",
-      description: "Demo Template for  Services survey",
-      qCount: 4,
-    },
-    {
-      title: "Survey 3",
-      description: "Demo Template for Webpage survey",
-      qCount: 4,
-    },
-    {
-      title: "Survey 4",
-      description: "Demo Template for Job survey",
-      qCount: 4,
-    },
-    {
-        title: "Survey 5",
-        description: "Demo Template for Job survey",
-        qCount: 4,
-      }
-  ]);
+  //const data=useSelector((state)=> state.addSurveyReducer);
+ // const dispatch = useDispatch();
+  const [surveyTemplates,setSurveyTemplates]=useState();
+
+  // useEffect(() => {
+  //   dispatch(addSurveyAction({user:'Admin'}));
+  // },[]);
+
+  useEffect(() => {
+    API.getTemplates().then((response) => setSurveyTemplates(()=> response.data));
+}, []);
+  
+  
   const searchFilter = (value) => {
     console.log(value);
     return value.toLowerCase();
@@ -66,9 +54,9 @@ const Home = () => {
   };
   const SurveyList = () => {
     return (
-      surveyTemplates.map((item,index)=>{
-            return(
-          <div className="col-xl-6 col-sm-6 col-12">
+      surveyTemplates? surveyTemplates.map((item,index)=>{
+            return (
+          <div index={index} className="col-xl-6 col-sm-6 col-12">
             <div className="card">
               <div className="card-content card-body media d-flex views">
                 <div className="view1">
@@ -122,7 +110,7 @@ const Home = () => {
             </div>
           </div>
             );
-        })
+        }) : null
       
     );
   };
@@ -144,8 +132,5 @@ const Home = () => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  ...state,
-});
 
-export default connect(mapStateToProps)(Home);
+export default Home;
