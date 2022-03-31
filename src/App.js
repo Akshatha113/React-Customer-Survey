@@ -1,14 +1,13 @@
 
 import {Route, Routes} from 'react-router-dom';
 import './App.scss';
-import Layout from './Common/Layout/Layout';
+import Layout from './Common/Layout/Layout'
 import Welcome from './Screens/Welcome/Welcome';
 import User from './Screens/User/User';
 import Home from './Screens/Admin/Home/Home';
 import Email from './Screens/Admin/Email/Email';
 import Question from './Screens/Admin/Question/Question';
 import Sendmail from './Components/EmailJs/sendmail';
-
 
 
 // import './styles/Colors.scss';
@@ -21,8 +20,7 @@ function App() {
         <Route exact path="/qns" element={<Question/>} />
         <Route exact path="/user" element={<User/>} />        
         <Route exact path="/welcome" element={<Welcome/>} />
-        <Route exact path="/sendmail" element={<Sendmail/>} />
-        <Route exact path="/email" element={<Email/>} />
+        <Route exact path="/sendemail" element={<Sendmail/>} />
       </Routes>
       </Layout>
     </div>

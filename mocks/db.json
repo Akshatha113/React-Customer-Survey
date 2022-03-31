@@ -1,0 +1,29 @@
+{
+  "templates": [
+    {
+      "title": "Survey 1",
+      "description": "Demo Template for  skill survey",
+      "qCount": 4
+    },
+    {
+      "title": "Survey 2",
+      "description": "Demo Template for  Services survey",
+      "qCount": 4
+    },
+    {
+      "title": "Survey 3",
+      "description": "Demo Template for Webpage survey",
+      "qCount": 7
+    },
+    {
+      "title": "Survey 4",
+      "description": "Demo Template for Job survey",
+      "qCount": 5
+    },
+    {
+        "title": "Survey 5",
+        "description": "Demo Template for Job survey",
+        "qCount": 4
+      }
+  ]
+}
