@@ -1,23 +1,16 @@
 @import "../../../styles/Colors";
 
-.comps
-{
+.comps {
     width:20%;
 }
 .btns button {
     height:100%;
     width:100%;
     margin:5px 0;
-    background-color: $grey0;
-    text-align: start;
-    border: 2px solid $teal;
-    box-shadow: 1px 1px 4px $teal;
+    text-align: start; 
     span {
-        margin: 0 20px;
+        margin: 0 10px;
     }
-}
-.btns button:hover {
-    background-color:$teal;
 }
 .comps2 {
     width:80%;
@@ -40,6 +33,7 @@
         height:30px;
         line-height: 1.6;
         margin:5px 0;
+        border-radius: 4px;
     }
     .survey-title {
         font-size:16px !important;

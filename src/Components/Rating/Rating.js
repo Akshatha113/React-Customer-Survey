@@ -34,7 +34,7 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                     {isEdit && <span className="question font-bold">{data.title}</span>}
                     {!isEdit && <input type="text" value={data.title} onChange={(e)=>onFieldUpdate("TITLE",e.target.value)}/>}
                 </h5>
-                <div className="" role="group" aria-label="Basic outlined example">
+                <div className="rating" role="group" aria-label="Basic outlined example">
                     <div className="flex-display text-btns float-end">{renderButton}</div>
                     <div className="input-box">
                         {data.ansType==='Star' && 
@@ -43,7 +43,7 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                                     index += 1;
                                     return (
                                         <button type="button" key={index} value={data.ans}
-                                            className={index <= (hover || rating) ? "active" : "inactive"}
+                                            className={index <= (hover || rating) ? "active-star" : "inactive-star"}
                                             onClick={() => setRating(index)}
                                             onMouseEnter={() => setHover(index)}
                                             onMouseLeave={() => setHover(rating)}
@@ -52,13 +52,13 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                                         </button>
                                     );
                                 })}
-                            </div> }
+                        </div> }
                         {data.ansType==='Number' && <div >
                                 {[...Array(10)].map((_star, index) => {
                                     // index += 1;
                                     return (
                                         <button type="button" key={index} value={data.ans}
-                                            className={index <= (hover || rating) ? "true" : "false" }
+                                            className={index <= (hover || rating) ? "rate-num bg-grey active" : "rate-num bg-grey" }
                                             onClick={() => setRating(index)}
                                             onMouseEnter={() => setHover(index)}
                                             onMouseLeave={() => setHover(rating)}
@@ -67,7 +67,7 @@ const Rating=({ qno, data, id, isEdit = false, onUpdate})=> {
                                         </button>
                                     );
                                 })}
-                            </div> }
+                        </div> }
                     </div>
                 </div>
             </div>

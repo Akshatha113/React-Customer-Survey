@@ -8,7 +8,7 @@ const ActionCard = ({ isEdit = false, isDelete = false, id, onSave = () => { }, 
         <div className="card">
             <div className="card-header">
                 <div className="float-end">
-                    {isEdit && <i className="fa fa-pencil ml-2 fs-24"  
+                    {isEdit && <i className="fa fa-pencil edit ml-2 fs-24"  
                         onClick={() => {onEdit(id); setSaveFlag(true)}}></i>}
                     {isDelete && <i className="fa fa-close ml-2 fs-24" 
                         onClick={() => onDelete(id)}></i>}
