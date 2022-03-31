@@ -5,6 +5,7 @@ import Layout from './common/Layout/Layout'
 import Welcome from './Screens/Welcome/Welcome';
 import User from './Screens/User/User';
 import Home from './Screens/Admin/Home/Home';
+import Email from './Screens/Admin/Email/Email';
 import Question from './Screens/Admin/Question/Question';
 import Sendmail from './Components/EmailJs/sendmail';
 
@@ -12,7 +13,7 @@ import Sendmail from './Components/EmailJs/sendmail';
 // import './styles/Colors.scss';
 function App() {
   return (
-    <div className="content">
+    <div>
       <Layout>
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/user" element={<User/>} />        
         <Route exact path="/welcome" element={<Welcome/>} />
         <Route exact path="/sendemail" element={<Sendmail/>} />
+        <Route exact path="/email" element={<Email/>} />
       </Routes>
       </Layout>
     </div>

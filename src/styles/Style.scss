@@ -1,8 +1,9 @@
 @import './Buttons.scss';
 @import './Icons.scss';
-html, #root, .app {
+html, #root, .content {
     height: 100%;
 }
+
 body {
     background-color: $grey0 !important;
     font-family: MarkPro !important;
@@ -23,8 +24,12 @@ body {
 }
 .bg-grey {
     background-color: $grey0 !important;
-    box-shadow: 1px 1px 4px $grey4;
-    border: 2px solid $grey4;
+    border: 1px solid $blue;
+    border-bottom: 2px solid $teal;
+}
+.bg-grey:hover {
+    box-shadow: 1px 1px 2px $teal;
+    border: 2px solid $teal;
 }
 .active {
     background-color: $teal;
@@ -71,13 +76,6 @@ input[type=radio]:checked:before {
 .center-align {
     text-align: center;
 }
-.content {
-    display: flex;
-    margin: 15px 10%;
-    flex-direction: row;
-    /* //align-items: center;
-    //width:100%; */
-}
 .flex-col {
     display:flex;
     flex-direction: column;
@@ -88,7 +86,7 @@ input[type=radio]:checked:before {
 button {
     background-color: $yellow;
     border: none;
-    outline: none;
+    outline : none !important;
     cursor: pointer;
     height:38px;
     padding: 10px;
@@ -267,7 +265,10 @@ input:-webkit-autofill:focus {
 @media screen  and (max-width:767px) {
     .content-left{
         justify-content: center;
-
+    
+    .content, .toolbar {
+        margin:0 18px !important;
+    }
 }
 @media screen and (max-width:300px) {
     label.star::before{

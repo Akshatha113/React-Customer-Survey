@@ -5,7 +5,7 @@ import girlLaptop from "../../assets/images/girlLaptop.jpg";
 function Welcome() {
     
   return (
-    <div className="content bg-white flex-col">
+    <div className="contents bg-white flex-col">
         <div className="top-content">
             <div className="heading">
                 <span className="white-text">Share your</span>

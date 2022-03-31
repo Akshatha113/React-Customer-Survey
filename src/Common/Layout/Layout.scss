@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh !important;
+}
+.content {
+    margin: 15px 10%;
+}
+.app-footer {
+    margin-top: auto !important;
+}

@@ -1,5 +1,5 @@
 @import "../../styles/Colors";
-.content{
+.contents{
     display: flex;
     margin: 15px 10%;
     flex-direction: column;
@@ -52,9 +52,6 @@ button {
      .bottom-content {
          flex-direction: column;
          margin:0 5%;
-     }
-     .content {
-         margin:0 18px !important;
      }
  }
  @media screen and (min-width:768px) and  (max-width: 1024px) {

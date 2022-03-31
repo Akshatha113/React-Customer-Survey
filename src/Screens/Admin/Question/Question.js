@@ -7,16 +7,21 @@ import YesNo from "../../../Components/YesNo/YesNo";
 import OpenEnded from "../../../Components/OpenEnded/OpenEnded";
 import MixedType from "../../../Components/MixedType/MixedType";
 import ImageChoice from "../../../Components/ImageChoice/ImageChoice";
+import Rating from "../../../Components/Rating/Rating";
+import Ranking from "../../../Components/Ranking/Ranking";
+import Matrix from "../../../Components/Matrix/Matrix";
+import MultiSelect from "../../../Components/MultiSelect/MultiSelect";
 
 const Question=()=> { 
     const [questionList, setQuestionList] = useState([
-        // { id: 0, type: 'SampleQuestion1', data: { title: 'Enter the question here', buttons: ['Yes', 'No']}, edit: true },
-        // { id: 1, type: 'SampleQuestion2', data: {}, edit: true },
-        { id: 2, type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
-        { id: 3, type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
-        { id: 4, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
-        { id: 5, type: 'ImageChoice', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
-        
+        { id: 0, type: 'YesNo', icon:'fa fa-thumbs-up', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
+        { id: 1, type: 'OpenEnded', icon:'fa fa-pencil', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
+        { id: 2, type: 'MultiSelect', icon:'fa fa-list', icon:'fa fa-list', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'option1',name:'',selected:false},{ id:'2', value:'option2',name:'',selected:false},{ id:'3', value:'option3',name:'',selected:false}]}, edit: true },
+        { id: 3, type: 'MixedType', icon:'fa fa-tasks', data: { title: 'Enter the question here', tab: '', ans: '', options : ['Very satisfied','Satisfied', 'Neutral', 'Dissatisfied','Very dissatisfied']}, edit: true },
+        { id: 4, type: 'ImageChoice', icon:'fa fa-picture-o', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
+        { id: 5, type: 'Rating', icon:'fa fa-star', data: { title: 'Enter the question here', buttons: ['Star', 'Number'], ansType:'Star', ans: ''}, edit: true },
+        { id: 6, type: 'Ranking', icon:'fa fa-bar-chart',data: { title: 'Enter the question here', ans: ''}, edit: true },
+        { id: 7, type: 'Matrix', icon:'fa fa-th', data: { title: 'Enter the question here', tab: '', ans: ''}, edit: true },
     ]);
 
     const onSave = (id) => {
@@ -66,7 +71,7 @@ const Question=()=> {
        console.log(components); 
     //    console.log(questionList);
     }
-    const rederQuestionList = components.map( (question,index) => {
+    const renderQuestionList = components.map( (question,index) => {
         switch(question.type) {
             case 'YesNo': return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
             <YesNo qno={index+1} key={question.id} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
@@ -80,6 +85,18 @@ const Question=()=> {
             case 'ImageChoice' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
             <ImageChoice key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
             </ActionCard>
+            case 'MultiSelect' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <MultiSelect key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'Rating' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Rating key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'Ranking' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Ranking key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
+            case 'Matrix' : return <ActionCard key={question.id} isEdit={question.edit} isDelete={true} id={question.id} onSave={onSave} onDelete={onDelete} onEdit={onEdit}>
+            <Matrix key={question.id} qno={index+1} id={question.id} data={question.data} isEdit={question.edit} onUpdate={onUpdate}/>
+            </ActionCard>
             default : return null;
         }
     });
@@ -90,7 +107,7 @@ const Question=()=> {
                 
                 <div className="btns">
                     { questionList.map((qns,index) => 
-                    <button onClick={()=>loadComponent(qns,index)} key={index}>
+                    <button className="btns bg-grey" onClick={()=>loadComponent(qns,index)} key={index}>
                         <span className={qns.icon}></span>
                         {qns.type}
                     </button>
@@ -108,7 +125,7 @@ const Question=()=> {
                         ></input>
                     </div>
                 </div>
-                {rederQuestionList}
+                {renderQuestionList}
            
             </div> 
             

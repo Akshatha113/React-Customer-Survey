@@ -15,7 +15,7 @@ const User = () => {
     const [questionList, setQuestionList] = useState([
         { id: 0, type: 'YesNo', data: { title: 'Enter the question here', buttons: ['Yes', 'No'], ans: ''}, edit: true },
         { id: 1, type: 'OpenEnded', data: { title: 'Enter the question here', buttons: ['Short', 'Long'], ansType:'Short', ans: ''}, edit: true },
-        // { id: 2, type: 'MultiSelect', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'option1',name:'',selected:false},{ id:'2', value:'option2',name:'',selected:false},{ id:'3', value:'option3',name:'',selected:false}]}, edit: true },
+        { id: 2, type: 'MultiSelect', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'option1',name:'',selected:false},{ id:'2', value:'option2',name:'',selected:false},{ id:'3', value:'option3',name:'',selected:false}]}, edit: true },
         { id: 3, type: 'MixedType', data: { title: 'Enter the question here', tab: '', ans: '', options : ['Very satisfied','Satisfied', 'Neutral', 'Dissatisfied','Very dissatisfied']}, edit: true },
         { id: 4, type: 'ImageChoice', data: { title: 'Enter the question here', tabs:[{ id:'1', value:'',name:'',selected:false},{ id:'2', value:'',name:'',selected:false},{ id:'3', value:'',name:'',selected:false}]}, edit: true },
         { id: 5, type: 'Rating', data: { title: 'Enter the question here', buttons: ['Star', 'Number'], ansType:'Star', ans: ''}, edit: true },
